@@ -1,1 +1,290 @@
+**1. Khái niệm Manual Testing là gì?**
+
+Kiểm thử thủ công (Manual Testing) là quá trình tester trực tiếp thao tác trên phần mềm để kiểm tra xem hệ thống có hoạt động đúng theo yêu cầu hay không.
+
+**2. Mục tiêu của Manual Testing**
+
+① Phát hiện lỗi
+
+Tìm các lỗi về:
+
+Chức năng.
+Logic.
+Giao diện.
+Trải nghiệm người dùng.
+② Xác minh yêu cầu
+
+Kiểm tra phần mềm có đáp ứng:
+
+Functional Requirements.
+Non-functional Requirements.
+
+hay không.
+
+③ Đảm bảo trải nghiệm người dùng
+
+Kiểm tra phần mềm từ góc nhìn của End User.
+
+Ví dụ:
+
+Giao diện có dễ sử dụng không?
+Thông báo lỗi có rõ ràng không?
+Luồng thao tác có hợp lý không?
+④ Kiểm tra Regression
+
+Sau khi Developer sửa lỗi, cần kiểm tra:
+
+Lỗi cũ đã được sửa chưa?
+Việc sửa lỗi có làm ảnh hưởng chức năng khác không?
+⑤ Đảm bảo chất lượng phần mềm
+
+Mục tiêu cuối cùng của QA/Tester là:
+
+Phát hiện vấn đề và cung cấp thông tin về chất lượng sản phẩm trước khi phát hành.
+
+**3. Vì sao Manual Testing quan trọng?**
+
+🔹 Kiểm tra UX/UI
+
+Con người có thể đánh giá:
+
+Giao diện.
+Tính thẩm mỹ.
+Sự thuận tiện.
+Trải nghiệm sử dụng.
+🔹 Exploratory Testing
+
+Tester có thể sử dụng:
+
+Kinh nghiệm.
+Trực giác.
+Quan sát.
+
+để tìm ra các lỗi mà Test Case có thể chưa đề cập đến.
+
+🔹 Linh hoạt khi yêu cầu thay đổi
+
+Manual Testing phù hợp khi:
+
+Dự án nhỏ.
+Yêu cầu thay đổi thường xuyên.
+Giao diện đang được thay đổi.
+Cần kiểm tra nhanh.
+
+**4. Đặc điểm của Manual Testing**
+
+Ưu điểm
+Linh hoạt.
+Không nhất thiết cần kỹ năng lập trình.
+Phù hợp Exploratory Testing.
+Kiểm tra UX tốt.
+Dễ thích nghi với yêu cầu thay đổi.
+
+Hạn chế
+Tốn thời gian.
+Dễ xảy ra Human Error.
+Khó thực hiện lặp lại với số lượng lớn.
+Khó đạt độ bao phủ cao đối với hệ thống lớn.
+
+5. Các loại kiểm thử:
+
+### Black-box Testing là gì?
+
+Tester kiểm tra phần mềm dựa trên:
+
+Input.
+Output.
+Requirements.
+User Stories.
+
+Tester không cần biết code bên trong hoạt động như thế nào.
+
+Ví dụ
+
+Kiểm tra chức năng đăng nhập:
+
+Input:
+
+Username.
+Password.
+
+Expected Result:
+
+Đúng → Đăng nhập thành công.
+Sai → Hiển thị thông báo lỗi.
+
+### Integration Testing là gì
+
+Kiểm tra sự tương tác giữa các thành phần hoặc module.
+
+Ví dụ trong ứng dụng Workout Management của bạn:
+
+Frontend
+    ↓
+API
+    ↓
+Backend
+    ↓
+Database
+
+Bạn có thể kiểm tra:
+
+Frontend gửi dữ liệu Workout.
+API nhận dữ liệu.
+Backend xử lý.
+Database lưu dữ liệu.
+Frontend hiển thị kết quả.
+
+Nếu một phần hoạt động nhưng dữ liệu không truyền đúng giữa các phần → có thể là lỗi Integration.
+
+### System Testing là gì?
+
+Kiểm tra toàn bộ hệ thống đã tích hợp.
+
+Ví dụ:
+
+Người dùng thêm Workout → dữ liệu được lưu → danh sách Workout cập nhật → Dashboard/Statistics cập nhật.
+
+Đây là một End-to-End Flow.
+
+### Acceptance Testing là gì?
+
+Kiểm tra xem phần mềm có đáp ứng:
+
+Business Requirements.
+User Requirements.
+
+hay không.
+
+Câu hỏi cần đặt ra:
+
+Nếu tôi là người dùng cuối, ứng dụng này đã đáp ứng nhu cầu sử dụng chưa?
+
+### White-box Testing là gì?
+
+Kiểm tra:
+
+Code.
+Logic.
+Conditions.
+Loops.
+Paths.
+
+Thông thường cần kiến thức lập trình.
+
+### Gray-box Testing là gì?
+
+Kết hợp giữa:
+
+Góc nhìn người dùng.
+Một phần hiểu biết về hệ thống bên trong.
+
+Ví dụ bạn không cần đọc toàn bộ source code nhưng biết:
+
+Database schema.
+API structure.
+System architecture.
+
+**7. QUY TRÌNH MANUAL TESTING**
+Bước 1: Phân tích yêu cầu
+
+Tester đọc và hiểu:
+Requirements.
+User Stories.
+Use Cases.
+
+Mục tiêu:
+Hiểu hệ thống cần hoạt động như thế nào.
+
+Bước 2: Lập kế hoạch kiểm thử
+
+Xác định:
+Phạm vi kiểm thử.
+Mục tiêu.
+Phương pháp kiểm thử.
+Thời gian.
+Nguồn lực.
+
+Bước 3: Thiết kế Test Case
+Một test case thường có
+
+<img width="718" height="535" alt="Image" src="https://github.com/user-attachments/assets/4f300b71-e543-4206-bd14-244787654077" />
+
+Bước 4: Thiết lập Test Environment
+
+Chuẩn bị môi trường kiểm thử:
+
+Application.
+Database.
+Test Data.
+Server hoặc API.
+
+Ví dụ với ứng dụng của bạn:
+
+Frontend: PyQt
+Backend: FastAPI
+Database: SQLite
+API: http://127.0.0.1:8000
+
+👉 Khi kiểm thử, môi trường cần hoạt động ổn định trước khi thực hiện Test Case.
+
+Bước 5: Execute Test Cases & Report Bugs
+
+Thực hiện Test Case.
+
+Sau đó:
+
+Actual Result
+        ↓
+So sánh
+        ↓
+Expected Result
+        ↓
+Có khác nhau?
+     ↙        ↘
+   Không       Có
+    PASS      BUG
+Nếu phát hiện lỗi → tạo Bug Report.
+
+Một Bug Report thường có:
+
+Bug ID.
+Title/Summary.
+Pre-condition.
+Steps to Reproduce.
+Actual Result.
+Expected Result.
+Severity.
+Priority.
+Evidence/Screenshot.
+
+Bước 6: Báo cáo và đánh giá
+
+Sau chu kỳ kiểm thử, có thể xem xét:
+
+Bao nhiêu Test Case Pass?
+Bao nhiêu Test Case Fail?
+Có bao nhiêu Bug?
+Những Bug nào còn mở?
+
+Mục đích:
+
+Đánh giá chất lượng hiện tại của phần mềm.
+
+**8. Manual Testing và Automation Testing**
+
+<img width="820" height="341" alt="Image" src="https://github.com/user-attachments/assets/8ecdd93a-ea03-494f-a065-cd23a866a6ea" />
+
+Manual Testing phù hợp với exploratory testing, usability testing và các tình huống cần đánh giá của con người. Automation Testing phù hợp với các Test Case lặp lại, đặc biệt là Regression Testing, vì có thể thực hiện nhanh và tái sử dụng.
+
+9. Các công cụ: Bạn chưa cần học tất cả
+
+Trong bài có:
+
+Selenium.
+UFT/QTP.
+JMeter.
+LoadRunner.
+TestLink.
+HP ALM.
 

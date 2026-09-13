@@ -1,0 +1,327 @@
+⭐ 1. Khái niệm quan trọng nhất: Test Scenario là gì?
+
+Test Scenario (Kịch bản kiểm thử) mô tả ở mức cao những gì cần được kiểm thử trong hệ thống.
+  
+  Ví dụ:
+
+Test Scenario:
+
+Kiểm tra chức năng đăng nhập.
+
+Từ Test Scenario này, chúng ta có thể tạo nhiều Test Case:
+
+Đăng nhập với email và mật khẩu hợp lệ.
+Đăng nhập với email không hợp lệ.
+Đăng nhập với mật khẩu không hợp lệ.
+Để trống email.
+Để trống mật khẩu.
+Kiểm tra chức năng Quên mật khẩu.
+
+⭐ 2. Phân biệt Test Scenario và Test Case
+
+| Test Scenario                      | Test Case                            |
+| ---------------------------------- | ------------------------------------ |
+| Mô tả **cần kiểm thử gì**          | Mô tả **kiểm thử như thế nào**       |
+| Mức độ tổng quát                   | Chi tiết                             |
+| Tập trung vào chức năng hoặc luồng | Có Steps, Test Data, Expected Result |
+| Có thể tạo nhiều Test Case         | Thực hiện kiểm tra cụ thể            |
+
+Ví dụ
+
+Test Scenario:
+
+Kiểm tra chức năng đăng nhập.
+
+⬇️ Từ đó tạo Test Case:
+
+TC01: Đăng nhập bằng tài khoản hợp lệ.
+
+TC02: Đăng nhập với mật khẩu sai.
+
+TC03: Đăng nhập khi để trống Email.
+
+TC04: Kiểm tra chức năng Quên mật khẩu.
+
+👉 !!! Test Scenario mô tả ở mức cao những chức năng hoặc tình huống cần kiểm thử, 
+trong khi Test Case mô tả chi tiết các bước thực hiện, dữ liệu kiểm thử và kết quả mong đợi để kiểm tra một điều kiện cụ thể.
+
+⭐ 3. Các loại Test Scenario
+
+Bài học chia thành 5 loại chính.
+
+① Functional Test Scenario
+
+Kiểm tra xem chức năng có hoạt động đúng theo yêu cầu không.
+
+Ví dụ:
+
+Đăng nhập.
+Đăng ký.
+Thêm sản phẩm vào giỏ hàng.
+Thanh toán.
+Ví dụ với ứng dụng Workout của bạn
+
+Kiểm tra chức năng thêm Workout.
+
+Có thể tạo các Test Case:
+
+Thêm Workout với dữ liệu hợp lệ.
+Không nhập thời gian bắt đầu.
+Thời gian bắt đầu lớn hơn thời gian kết thúc.
+Thêm Workout bị trùng thời gian.
+
+② Non-functional Test Scenario
+
+Kiểm tra các đặc điểm chất lượng của hệ thống, ví dụ:
+
+Performance.
+Scalability.
+Usability.
+Reliability.
+
+Ví dụ:
+
+Kiểm tra ứng dụng có phản hồi ổn định khi có nhiều người dùng.
+
+③ Security Test Scenario
+
+Kiểm tra khả năng bảo vệ:
+
+Dữ liệu người dùng.
+Thông tin cá nhân.
+Truy cập trái phép.
+
+Ví dụ:
+
+Người dùng không thể truy cập chức năng khi chưa đăng nhập.
+Không thể xem dữ liệu của người dùng khác.
+
+④ UI Test Scenario
+
+Kiểm tra:
+
+Bố cục.
+Điều hướng.
+Nút.
+Các thành phần giao diện.
+Khả năng hiển thị.
+
+Ví dụ:
+
+Kiểm tra giao diện màn hình đăng nhập hiển thị đầy đủ và dễ sử dụng.
+
+⑤ End-to-End Test Scenario
+
+Kiểm tra một luồng hoàn chỉnh từ đầu đến cuối.
+
+Ví dụ trong thương mại điện tử:
+
+Tìm kiếm sản phẩm
+       ↓
+Xem sản phẩm
+       ↓
+Thêm vào giỏ hàng
+       ↓
+Thanh toán
+       ↓
+Xác nhận đơn hàng
+
+Ví dụ với ứng dụng Workout của bạn
+Chọn loại bài tập
+        ↓
+Nhập thông tin Workout
+        ↓
+Thêm Workout
+        ↓
+Dữ liệu được lưu
+        ↓
+Danh sách cập nhật
+        ↓
+Statistics/Dashboard cập nhật
+
+👉 Đây là một End-to-End Test Scenario rất tốt để bạn thực hành.
+
+⭐ 4. Tại sao cần tạo Test Scenario? 4 mục đích chính:
+
+🔹 Đảm bảo Test Coverage
+
+Giúp đảm bảo các chức năng chính đều được kiểm thử.
+
+🔹 Hiểu hệ thống từ góc nhìn tổng thể
+
+Giúp Tester nhìn được:
+
+Các chức năng.
+Các module.
+Luồng nghiệp vụ.
+🔹 Hỗ trợ lập kế hoạch kiểm thử
+
+Giúp ước lượng:
+
+Phạm vi kiểm thử.
+Khối lượng công việc.
+Thời gian cần thiết.
+🔹 Hỗ trợ trao đổi với các bên liên quan
+
+Test Scenario có thể được xem xét bởi:
+
+BA.
+Developer.
+QA/Tester.
+Khách hàng.
+
+⭐ 5. Cách viết Test Scenario
+Bước 1: Đọc và phân tích Requirements
+
+Có thể đọc:
+
+BRS.
+SRS.
+FRS.
+User Stories.
+Use Cases.
+
+Mục tiêu:
+
+Hiểu hệ thống cần hoạt động như thế nào.
+
+  Bước 2: Xác định hành động của người dùng
+
+Đặt câu hỏi:
+
+Người dùng có thể làm gì?
+Người dùng mong đợi kết quả gì?
+Có trường hợp bất thường nào?
+Người dùng có thể sử dụng sai như thế nào?
+
+Ví dụ chức năng Login:
+
+Nhập thông tin đúng.
+Nhập sai mật khẩu.
+Để trống dữ liệu.
+Nhập sai định dạng Email.
+Quên mật khẩu.
+
+  Bước 3: Liệt kê Test Scenario
+
+Ví dụ cho ứng dụng Workout:
+
+ID	Test Scenario
+TS01	Kiểm tra chức năng thêm Workout
+TS02	Kiểm tra chức năng chỉnh sửa Workout
+TS03	Kiểm tra chức năng xóa Workout
+TS04	Kiểm tra hiển thị danh sách Workout
+TS05	Kiểm tra cập nhật Statistics
+TS06	Kiểm tra dữ liệu Dashboard
+
+👉 Sau đó, mỗi Test Scenario có thể được chia thành nhiều Test Case.
+
+  Bước 4: Kiểm tra Traceability
+
+Đảm bảo:
+
+Mỗi Requirement quan trọng có Test Scenario tương ứng.
+
+Ví dụ:
+
+Requirement
+     ↓
+Test Scenario
+     ↓
+Test Case
+     ↓
+Test Execution
+     ↓
+Bug Report (nếu có)
+
+Đây là cách giúp tránh:
+
+❌ Bỏ sót yêu cầu.
+
+  Bước 5: Review
+
+Test Scenario nên được xem xét để kiểm tra:
+
+Có thiếu chức năng không?
+Có trùng lặp không?
+Có phù hợp với Requirement không?
+
+⭐ 6. Những lỗi thường gặp khi tạo Test Scenario
+
+❌ Chỉ kiểm tra Happy Path
+
+Ví dụ chỉ kiểm tra:
+
+Đăng nhập thành công.
+
+Nhưng quên:
+
+Mật khẩu sai.
+Email sai.
+Để trống dữ liệu.
+Dữ liệu không hợp lệ.
+
+👉 Tester cần nghĩ đến cả Positive và Negative Scenarios.
+
+❌ Test Scenario quá phức tạp
+
+Một Scenario chứa quá nhiều chức năng khác nhau sẽ:
+
+Khó quản lý.
+Khó bảo trì.
+Khó xác định phạm vi lỗi.
+
+Nên chia Scenario hợp lý.
+
+❌ Scenario bị trùng lặp
+
+Nhiều Scenario kiểm tra cùng một nội dung → lãng phí thời gian.
+
+❌ Không có Traceability
+
+Requirement có nhưng không có Scenario kiểm tra.
+
+→ Có nguy cơ bỏ sót chức năng.
+
+❌ Không ưu tiên kiểm thử
+
+Không phải tất cả Scenario đều có mức độ quan trọng giống nhau.
+
+Nên ưu tiên:
+
+Chức năng chính.
+Chức năng có ảnh hưởng lớn.
+Chức năng có rủi ro cao.
+
+⭐ 7. Test Scenario và Scenario Testing
+
+Bạn cần phân biệt hai khái niệm này.
+
+Test Scenario
+
+Là:
+
+Những gì cần kiểm thử.
+
+Ví dụ:
+
+Kiểm tra chức năng thanh toán.
+
+Scenario Testing
+
+Là kiểm thử dựa trên:
+
+User Journey.
+Tình huống thực tế.
+Luồng End-to-End.
+
+Ví dụ:
+
+Một khách hàng đăng nhập → tìm kiếm sản phẩm → thêm vào giỏ → thanh toán.
+
+👉 Có thể hiểu đơn giản:
+
+Test Scenario = xác định phạm vi cần test
+
+Scenario Testing = kiểm tra hệ thống theo tình huống/luồng sử dụng thực tế
+
