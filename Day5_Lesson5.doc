@@ -1,1 +1,20 @@
+Sau khi hoàn thành các bài học, hãy xác định ba lỗi tiềm ẩn trong ứng dụng di động yêu thích của bạn. 
+Viết chúng ra – điều này sẽ giúp bạn rèn luyện “con mắt kiểm thử”!
 
+1. Time Overlap – Duplicate Workout
+•	Precondition: Đã có một workout từ 08:00 đến 09:00. 
+•	Steps: Tạo workout mới cùng ngày từ 08:30 đến 09:30. 
+•	Expected: Hệ thống từ chối workout mới và hiển thị thông báo thời gian bị trùng. 
+•	Potential Bug: Workout mới vẫn được tạo thành công hoặc không hiển thị thông báo lỗi. 
+
+2. Statistics – Data Not Refreshed
+•	Precondition: Statistics đang hiển thị tổng số workout hiện tại. 
+•	Steps: Thêm một workout mới. 
+•	Expected: Tổng số workout và biểu đồ được cập nhật ngay sau khi thêm thành công. 
+•	Potential Bug: Workout đã được lưu nhưng Statistics vẫn hiển thị dữ liệu cũ. 
+
+3. Data Synchronization – Workout List vs. Statistics
+•	Precondition: Workout đã tồn tại trong hệ thống. 
+•	Steps: Xóa hoặc chỉnh sửa workout → chuyển sang Statistics. 
+•	Expected: Statistics phản ánh chính xác dữ liệu mới nhất. 
+•	Potential Bug: Workout List đã cập nhật nhưng Statistics vẫn hiển thị dữ liệu trước khi chỉnh sửa/xóa.
