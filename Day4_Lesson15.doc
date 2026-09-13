@@ -1,0 +1,277 @@
+⭐ 1. Khái niệm quan trọng nhất: Test Case là gì?
+
+Test Case (Trường hợp kiểm thử) là một tập hợp gồm:
+
+Các điều kiện cần thiết.
+Các bước thực hiện.
+Dữ liệu kiểm thử.
+Kết quả mong đợi.
+
+Test Case hướng dẫn Tester:
+
+Kiểm thử cái gì → Kiểm thử như thế nào → Mong đợi kết quả gì.
+
+⭐ 2. Các thành phần chính của một Test Case
+
+Bài học đưa ra 8 thành phần quan trọng:
+
+Thành phần	Ý nghĩa
+Test Case ID	Mã định danh duy nhất, ví dụ TC001
+Description	Mô tả kiểm tra nội dung gì
+Pre-condition	Điều kiện cần có trước khi kiểm thử
+Test Steps	Các bước thực hiện
+Test Data	Dữ liệu sử dụng để kiểm thử
+Expected Result	Kết quả mong đợi
+Actual Result	Kết quả thực tế
+Status	Pass / Fail / Blocked
+
+⭐ 3. Ví dụ Test Case đơn giản
+  
+| Thành phần      | Nội dung                                           |
+| --------------- | -------------------------------------------------- |
+| Test Case ID    | TC_LOGIN_01                                        |
+| Description     | Kiểm tra đăng nhập với thông tin hợp lệ            |
+| Pre-condition   | Người dùng đã có tài khoản hợp lệ                  |
+| Test Steps      | 1. Nhập Email<br>2. Nhập Password<br>3. Nhấn Login |
+| Test Data       | Email và Password hợp lệ                           |
+| Expected Result | Đăng nhập thành công                               |
+| Actual Result   | Ghi nhận khi thực thi                              |
+| Status          | Pass/Fail                                          |
+
+Điều quan trọng cần hiểu:
+
+Khi chưa thực thi, bạn chưa thể xác định:
+
+Actual Result.
+Status.
+
+Sau khi chạy Test Case:
+
+Expected Result
+       ↓
+So sánh
+       ↓
+Actual Result
+       ↓
+PASS / FAIL / BLOCKED
+
+⭐ 4. Pre-condition và Post-condition
+
+Đây là phần khá quan trọng vì trước đó bạn cũng đã hỏi về Pre-condition.
+
+Pre-condition
+
+Là những điều kiện phải được đáp ứng trước khi chạy Test Case.
+
+Ví dụ:
+
+Người dùng đã có tài khoản hợp lệ.
+
+Hoặc:
+
+Ứng dụng đã được mở và người dùng đang ở màn hình Login.
+
+Post-condition
+
+Là trạng thái hoặc điều kiện xảy ra sau khi Test Case hoàn thành.
+
+Ví dụ:
+
+Thời gian đăng nhập được lưu vào hệ thống.
+
+👉 Trong thực tế, Pre-condition thường được sử dụng phổ biến hơn trong bảng Test Case cơ bản.
+
+⭐ 5. Test Scenario và Test Case
+
+Đây là kiến thức liên kết trực tiếp giữa Bài 14 và Bài 15.
+
+Test Scenario
+
+Trả lời:
+
+Cần kiểm thử cái gì?
+
+Ví dụ:
+
+Kiểm tra chức năng đăng nhập.
+
+Test Case
+
+Trả lời:
+
+Kiểm thử như thế nào?
+
+Ví dụ:
+
+Kiểm tra đăng nhập bằng Email và Password hợp lệ.
+
+Sau đó ghi rõ:
+
+Steps.
+Test Data.
+Expected Result.
+
+Mối quan hệ
+
+Requirement
+      ↓
+Test Scenario
+      ↓
+Test Case
+      ↓
+Test Execution
+      ↓
+Actual Result
+      ↓
+Pass / Fail
+      ↓
+Bug Report (nếu Fail do lỗi phần mềm)
+
+⭐ 6. Vì sao cần viết Test Case?
+
+Bạn không cần nhớ tất cả các ý trong bài. Hãy tập trung vào 5 lợi ích chính:
+
+① Đảm bảo Test Coverage
+
+Giúp kiểm tra đầy đủ các yêu cầu và chức năng.
+
+② Phát hiện lỗi
+
+Thông qua việc kiểm tra có hệ thống.
+
+③ Có thể lặp lại
+
+Một Tester khác vẫn có thể thực hiện lại Test Case.
+
+④ Có khả năng truy vết
+
+Có thể liên kết:
+
+Requirement → Test Scenario → Test Case
+
+Giúp biết mỗi Test Case đang kiểm tra yêu cầu nào.
+
+⑤ Tổ chức công việc tốt hơn
+
+Tester biết:
+
+Cần test gì.
+Test như thế nào.
+Đã test xong chưa.
+
+⭐ 7. Test Case chất lượng cao cần có gì?
+
+Một Test Case tốt nên có các đặc điểm:
+
+✅ Rõ ràng
+
+Không viết:
+
+Kiểm tra trang Login.
+
+Vì quá chung chung.
+
+Nên viết:
+
+Nhập Email và Password hợp lệ, sau đó nhấn nút Login.
+
+✅ Có Expected Result cụ thể
+
+Không nên viết:
+
+Hệ thống hoạt động đúng.
+
+Nên viết:
+
+Người dùng đăng nhập thành công và được chuyển đến trang Dashboard.
+
+✅ Có thể thực hiện lại
+
+Người khác có thể đọc Test Case và thực hiện giống bạn.
+
+✅ Có thể truy vết
+
+Biết Test Case này kiểm tra Requirement nào.
+
+✅ Có Positive và Negative Testing
+
+Không chỉ kiểm tra:
+
+✅ Dữ liệu hợp lệ.
+
+Mà còn:
+
+❌ Dữ liệu không hợp lệ.
+
+Ví dụ Login:
+
+Email hợp lệ + Password hợp lệ.
+Email sai + Password đúng.
+Email đúng + Password sai.
+Để trống Email.
+Để trống Password.
+
+⭐ 8. Những lỗi thường gặp khi viết Test Case
+
+❌ 1. Steps không rõ ràng
+
+Ví dụ:
+
+Kiểm tra chức năng Login.
+
+Đây không phải Test Step tốt.
+
+Nên viết:
+
+Mở trang Login.
+Nhập Email hợp lệ.
+Nhập Password hợp lệ.
+Nhấn nút Login.
+❌ 2. Bỏ qua Negative Cases
+
+Chỉ kiểm tra Happy Path:
+
+Đăng nhập thành công.
+
+Tester cần kiểm tra thêm các trường hợp:
+
+Sai dữ liệu.
+Để trống.
+Sai định dạng.
+Boundary/giới hạn.
+❌ 3. Test Data không rõ ràng
+
+Ví dụ không tốt:
+
+Nhập Email hợp lệ.
+
+Tốt hơn:
+
+Email: test@example.com
+
+Hoặc trong tài liệu thực tế:
+
+Valid Email from Test Data Sheet.
+
+❌ 4. Test Case quá phức tạp
+
+Một Test Case chứa quá nhiều chức năng sẽ:
+
+Khó đọc.
+Khó thực hiện.
+Khó bảo trì.
+
+Nên chia thành các Test Case nhỏ, rõ ràng.
+
+❌ 5. Không cập nhật Test Case khi Requirement thay đổi
+
+Requirement thay đổi nhưng Test Case vẫn giữ nội dung cũ.
+
+→ Có thể dẫn đến kết quả kiểm thử không còn chính xác.
+
+❌ 6. Thiếu Traceability
+
+Không biết Test Case đang kiểm tra Requirement nào.
+
+→ Dễ xảy ra thiếu Test Coverage.
+  
