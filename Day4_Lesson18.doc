@@ -1,0 +1,218 @@
+1. Equivalence Partitioning (EP) là gì?
+
+Equivalence Partitioning – Phân vùng tương đương là kỹ thuật Black-box Testing.
+
+Nó chia dữ liệu đầu vào thành các nhóm (lớp) tương đương, trong đó các giá trị trong cùng một nhóm được hệ thống xử lý theo cách tương tự.
+
+👉 Thay vì kiểm tra tất cả giá trị, chúng ta chỉ cần chọn một giá trị đại diện cho mỗi nhóm.
+
+Ví dụ: Số lượng Pizza từ 1 đến 10
+
+Yêu cầu:
+
+Người dùng chỉ được đặt từ 1 đến 10 chiếc Pizza.
+
+Ta có thể chia thành các lớp:
+| Lớp tương đương | Giá trị | Hợp lệ? |
+| --------------- | ------- | ------- |
+| Invalid Class   | < 1     | ❌       |
+| Valid Class     | 1–10    | ✅       |
+| Invalid Class   | > 10    | ❌       |
+Thay vì test tất cả:
+
+1, 2, 3, 4, 5, 6, 7, 8, 9, 10...
+
+Ta có thể chọn:
+
+0   → Invalid
+5   → Valid
+11  → Invalid
+
+👉 Như vậy giảm số lượng Test Case nhưng vẫn đảm bảo phạm vi kiểm thử hợp lý.
+  ⭐ 2. Boundary Value Analysis (BVA) là gì?
+
+Boundary Value Analysis – Phân tích giá trị biên cũng là kỹ thuật Black-box Testing.
+
+BVA tập trung vào các giá trị ở ranh giới (boundary).
+
+Lý do:
+
+Nhiều lỗi thường xảy ra tại các giá trị giới hạn.
+
+Ví dụ: Chấp nhận từ 1 đến 10
+
+Các giá trị quan trọng:
+
+0 | 1 | 2 | ... | 9 | 10 | 11
+    ↑   ↑           ↑   ↑
+
+Các Test Data thường dùng:
+| Giá trị | Ý nghĩa                    |
+| ------- | -------------------------- |
+| 0       | Ngay dưới giá trị nhỏ nhất |
+| 1       | Giá trị nhỏ nhất           |
+| 2       | Ngay trên giá trị nhỏ nhất |
+| 9       | Ngay dưới giá trị lớn nhất |
+| 10      | Giá trị lớn nhất           |
+| 11      | Ngay trên giá trị lớn nhất |
+
+Kết quả
+  | Test Data | Expected Result |
+| --------- | --------------- |
+| 0         | Không chấp nhận |
+| 1         | Chấp nhận       |
+| 2         | Chấp nhận       |
+| 9         | Chấp nhận       |
+| 10        | Chấp nhận       |
+| 11        | Không chấp nhận |
+
+  ⭐ 3. Điểm khác nhau quan trọng nhất giữa EP và BVA
+  |                    | Equivalence Partitioning         | Boundary Value Analysis    |
+| ------------------ | -------------------------------- | -------------------------- |
+| **Tập trung**      | Các nhóm dữ liệu                 | Các giá trị ở ranh giới    |
+| **Chọn dữ liệu**   | Một đại diện mỗi nhóm            | Các giá trị gần giới hạn   |
+| **Mục đích**       | Giảm Test Case trùng lặp         | Phát hiện lỗi tại giới hạn |
+| **Phù hợp để**     | Chia dữ liệu thành Valid/Invalid | Kiểm tra Min/Max           |
+| **Thứ tự áp dụng** | Thường áp dụng trước             | Áp dụng sau                |
+
+  Cách nhớ cực ngắn:
+
+EP = Chia nhóm
+BVA = Kiểm tra ranh giới
+  4. EP và BVA nên được sử dụng cùng nhau
+
+Đây là ý quan trọng nhất của Bài 18.
+
+Bước 1: Dùng EP
+
+Xác định các nhóm:
+
+Invalid | Valid | Invalid
+ < 1    | 1–10  | > 10
+Bước 2: Dùng BVA
+
+Kiểm tra ranh giới:
+
+0 | 1 | 2 | ... | 9 | 10 | 11
+
+👉 Vì vậy:
+
+EP giúp xác định các nhóm dữ liệu, còn BVA giúp kiểm tra các giá trị quan trọng tại ranh giới của những nhóm đó.
+  | Phân vùng | Độ dài Password | Kết quả |
+| --------- | --------------: | ------- |
+| Invalid   |       0–5 ký tự | ❌       |
+| Valid     |      6–10 ký tự | ✅       |
+| Invalid   |       >10 ký tự | ❌       |
+⭐ 5. Ví dụ rất quan trọng: Password từ 6 đến 10 ký tự
+
+Yêu cầu:
+
+Password phải có từ 6 đến 10 ký tự.
+
+A. Áp dụng Equivalence Partitioning
+  Ta chia thành:
+| Phân vùng | Độ dài Password | Kết quả |
+| --------- | --------------: | ------- |
+| Invalid   |       0–5 ký tự | ❌       |
+| Valid     |      6–10 ký tự | ✅       |
+| Invalid   |       >10 ký tự | ❌       |
+Chọn đại diện:
+
+4 ký tự  → Invalid
+8 ký tự  → Valid
+12 ký tự → Invalid
+
+  B. Áp dụng BVA
+
+Các giá trị biên:
+| Độ dài | Expected Result |
+| -----: | --------------- |
+|      5 | Không chấp nhận |
+|      6 | Chấp nhận       |
+|      7 | Chấp nhận       |
+|      9 | Chấp nhận       |
+|     10 | Chấp nhận       |
+|     11 | Không chấp nhận |
+
+  6. Áp dụng vào ứng dụng Workout Management của bạn
+
+Bài này có thể áp dụng rất tốt vào dự án của bạn.
+
+Ví dụ 1: Validation thời gian
+
+Giả sử hệ thống yêu cầu:
+
+Thời gian kết thúc phải sau thời gian bắt đầu.
+
+Ta có thể kiểm tra các nhóm:
+
+| Nhóm    | Ví dụ       | Kết quả |
+| ------- | ----------- | ------- |
+| Valid   | Start < End | ✅       |
+| Invalid | Start = End | ❌       |
+| Invalid | Start > End | ❌       |
+
+  Ví dụ 2: Thời gian tập
+
+Giả sử một chức năng yêu cầu thời lượng tập từ 1 đến 180 phút.
+
+EP:
+< 1 phút      → Invalid
+1–180 phút    → Valid
+> 180 phút    → Invalid
+BVA:
+0 | 1 | 2 | ... | 179 | 180 | 181
+
+👉 Từ đó bạn có thể tạo Test Case rõ ràng và có logic hơn.
+
+  ⭐ 7. Những lỗi BVA thường giúp phát hiện
+
+BVA đặc biệt tốt để phát hiện:
+
+Off-by-one Error
+
+Ví dụ Requirement:
+
+Chấp nhận tối đa 10 ký tự.
+
+Developer có thể viết nhầm:
+
+length < 10
+
+Thay vì:
+
+length <= 10
+
+Khi đó:
+
+9 ký tự → Pass.
+10 ký tự → Fail ❌
+
+👉 Đây chính là lỗi tại giá trị biên.
+
+  8. Khi nào nên dùng EP và BVA?
+
+Bạn nên nghĩ đến hai kỹ thuật này khi gặp:
+
+✅ Trường nhập số.
+
+✅ Giới hạn số lượng.
+
+✅ Độ dài Password.
+
+✅ Tuổi.
+
+✅ Điểm số.
+
+✅ Số lượng sản phẩm.
+
+✅ Khoảng ngày/thời gian.
+
+Ví dụ:
+
+Tuổi: 18–60
+Password: 6–10 ký tự
+Số lượng: 1–100
+Điểm: 0–10
+
+  
