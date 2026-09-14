@@ -1,0 +1,59 @@
+Bài 16: Cơ sở kiểm thử
+
+1.Test Basis là gì?
+Test Basis là nguồn thông tin mà Tester dựa vào để thiết kế và thực hiện kiểm thử.
+Tester chủ yếu dựa vào Test Basis để thiết kế Test Case.
+  
+2. Tester dựa vào đâu để thiết kế Test Case?
+Quy trình có thể hiểu như sau:
+Requirement / User Story / Specification / UI Design
+⬇
+Phân tích yêu cầu (Test Analysis)
+⬇
+Xác định Test Conditions
+⬇
+Xây dựng Test Scenario
+⬇
+Thiết kế Test Cases
+
+3. Requirement, User Story, Specification khác nhau thế nào?
+  Khái niệm	- Ý nghĩa -	Ví dụ
+Requirement	- Điều hệ thống hoặc doanh nghiệp cần	- Người dùng có thể tìm kiếm sản phẩm
+User Story	- Nhu cầu được mô tả từ góc nhìn người dùng	- Là khách hàng, tôi muốn tìm kiếm sản phẩm để nhanh chóng tìm được sản phẩm cần mua
+Specification -	Mô tả chi tiết cách hệ thống phải hoạt động	- Hệ thống tìm kiếm theo tên sản phẩm, hỗ trợ tìm kiếm một phần, phản hồi trong 2 giây
+
+4. Làm sao từ Requirement → Test Scenario → Test Case?
+Quy trình đơn giản:
+Requirement → Phân tích → Test Scenario → Test Case
+Bước 1: Giả sử Requirement là
+Người dùng có thể đăng nhập vào hệ thống bằng email và mật khẩu.
+Bước 2: Test Analysis cho Requirement là:
+•  Email hợp lệ thì sao? 
+•  Email không tồn tại thì sao? 
+•  Mật khẩu sai thì sao? 
+•  Nếu để trống email? 
+•  Nếu để trống mật khẩu? 
+•  Nếu cả hai đều trống? 
+•  Email có đúng định dạng không?
+Bước 3: Xác định Test Scenario
+TS01: Kiểm tra chức năng đăng nhập thành công.
+TS02: Kiểm tra đăng nhập với email không hợp lệ.
+TS03: Kiểm tra đăng nhập với mật khẩu sai.
+TS04: Kiểm tra validation khi để trống email.
+TS05: Kiểm tra validation khi để trống mật khẩu.
+  
+Bước 4: Viết test case
+VD : TS01: Kiểm tra chức năng đăng nhập thành công
+    
+Trường	              Nội dung
+Test Case ID	        TC_LOGIN_01
+Description	          Kiểm tra đăng nhập với thông tin hợp lệ
+Pre-condition	        Người dùng đã có tài khoản hợp lệ
+Test Steps	          1. Mở màn hình Login
+                      2. Nhập email hợp lệ
+                      3. Nhập mật khẩu đúng
+                      4. Nhấn Login
+Test Data	            Email: test@gmail.comPassword: 123456
+
+Expected Result	      Người dùng đăng nhập thành công và được chuyển đến Dashboard
+
