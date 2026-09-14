@@ -80,7 +80,6 @@ Priority: High.
 
 Nếu đó là logo sai trong ngày ra mắt sản phẩm.
 
-👉 Đây là câu hỏi phỏng vấn Tester rất phổ biến.
 
 ⭐ 3. Bước 3: Fix – Khắc phục lỗi
 
@@ -233,8 +232,6 @@ Bạn có thể nhớ một vòng đời lỗi cơ bản như sau:
                      ↓
                  ASSIGNED
 
-👉 Bạn không cần nhớ chính xác mọi tên trạng thái vì mỗi công ty có workflow khác nhau.
-
 Điều quan trọng là hiểu:
 
 Tester phát hiện → Developer xử lý → Tester kiểm tra lại → Đóng hoặc mở lại lỗi.
@@ -318,12 +315,6 @@ Mục đích:
 Defect Leakage Rate (DLR)
 
 Đánh giá số lỗi mà quá trình kiểm thử đã bỏ sót, sau đó mới được phát hiện ở giai đoạn sau hoặc bởi người dùng.
-
-👉 Với vị trí Junior Tester, bạn nên:
-
-✅ Hiểu ý nghĩa.
-
-⚠️ Chưa cần quá tập trung vào việc học thuộc công thức hoặc mức phần trăm cụ thể.
 
 Phần này thường phù hợp hơn khi làm việc trong môi trường QA có quy trình và metrics rõ ràng.
 
