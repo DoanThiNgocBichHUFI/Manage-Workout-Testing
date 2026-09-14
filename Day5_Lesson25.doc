@@ -1,0 +1,351 @@
+BÀI 25 – QUY TRÌNH QUẢN LÝ LỖI (DEFECT MANAGEMENT)
+
+1. Quy trình quản lý lỗi là gì?
+
+Defect Management (Quản lý lỗi) là một quy trình có hệ thống để:
+
+Phát hiện → Phân loại → Theo dõi → Khắc phục → Xác minh → Đóng lỗi
+
+Mục tiêu là đảm bảo lỗi được xử lý trước khi phần mềm phát hành.
+
+Cách nhớ đơn giản:
+Phát hiện
+    ↓
+Phân loại
+    ↓
+Giao xử lý
+    ↓
+Developer sửa
+    ↓
+Tester xác minh
+    ↓
+Đóng lỗi
+
+⭐ 2. Quy trình quản lý lỗi gồm 6 bước
+Bước 1: Discovery – Phát hiện lỗi
+
+Tester phát hiện sự khác biệt giữa:
+
+Expected Result ≠ Actual Result
+
+Ví dụ:
+
+Expected Result:
+
+Sau khi thêm Workout, biểu đồ Statistics được cập nhật.
+
+Actual Result:
+
+Workout được thêm thành công nhưng biểu đồ không cập nhật.
+
+➡️ Tester có thể ghi nhận đây là một Defect/Bug.
+
+Sau khi Developer/nhóm dự án xem xét và chấp nhận lỗi, lỗi có thể được đưa vào quy trình xử lý.
+
+Bước 2: Classification – Phân loại lỗi
+
+Lỗi được đánh giá dựa trên:
+
+Severity (Mức độ nghiêm trọng).
+Priority (Mức độ ưu tiên).
+Tác động đến người dùng.
+Tác động đến nghiệp vụ.
+Ví dụ:
+
+| Lỗi                                 | Mức độ ưu tiên |
+| ----------------------------------- | -------------- |
+| Login không hoạt động               | Critical       |
+| Không thể thực hiện giao dịch chính | High           |
+| Website phản hồi chậm               | High           |
+| UI hiển thị sai trên mobile         | Medium         |
+| Một liên kết không hoạt động        | Low            |
+
+👉 Khi học phần này, bạn đặc biệt nên phân biệt:
+
+Severity ≠ Priority
+Severity
+
+Lỗi ảnh hưởng nghiêm trọng đến hệ thống như thế nào.
+
+Priority
+
+Lỗi cần được sửa sớm như thế nào.
+
+Ví dụ:
+
+Một lỗi logo hiển thị sai có thể:
+
+Severity: Low.
+Priority: High.
+
+Nếu đó là logo sai trong ngày ra mắt sản phẩm.
+
+👉 Đây là câu hỏi phỏng vấn Tester rất phổ biến.
+
+⭐ 3. Bước 3: Fix – Khắc phục lỗi
+
+Sau khi lỗi được chấp nhận:
+
+① Assign
+
+Lỗi được giao cho Developer.
+
+New
+ ↓
+Assigned
+ ↓
+In Progress
+② Developer sửa lỗi
+
+Developer:
+
+Phân tích nguyên nhân.
+Sửa code.
+Kiểm tra lại.
+③ Cập nhật trạng thái
+
+Sau khi sửa xong, lỗi có thể chuyển sang:
+
+Resolved/Fixed
+
+Sau đó chuyển lại cho Tester kiểm tra.
+
+⭐ 4. Bước 4: Verification – Xác minh lỗi
+
+Đây là trách nhiệm quan trọng của Tester.
+
+Tester thực hiện lại các bước đã gây ra lỗi ban đầu.
+
+Ví dụ:
+
+Bug ban đầu:
+
+Thêm Workout thành công nhưng Statistics không cập nhật.
+
+Sau khi Developer sửa:
+
+Tester thực hiện lại:
+
+Thêm Workout
+     ↓
+Kiểm tra danh sách
+     ↓
+Kiểm tra Total Workouts
+     ↓
+Kiểm tra Total Minutes
+     ↓
+Kiểm tra Chart
+
+Nếu hoạt động đúng:
+
+✅ Bug được xác minh là đã sửa.
+
+Nếu lỗi vẫn tồn tại:
+
+❌ Bug có thể được Reopened.
+
+👉 Quá trình kiểm tra lại lỗi sau khi Developer sửa được gọi là:
+
+Retesting
+
+⭐ 5. Bước 5: Closure – Đóng lỗi
+
+Nếu Tester xác nhận:
+
+Lỗi đã được sửa thành công.
+
+Trạng thái lỗi được chuyển thành:
+
+Closed
+
+Ví dụ:
+
+New
+ ↓
+Assigned
+ ↓
+In Progress
+ ↓
+Fixed
+ ↓
+Retest
+ ↓
+Closed
+
+Nếu chưa sửa được:
+
+Retest
+ ↓
+Reopened
+
+⚠️ Lưu ý: Tên trạng thái Bug có thể khác nhau tùy công ty hoặc công cụ như Jira.
+
+6. Bước 6: Bug Reporting – Báo cáo lỗi
+
+Bug Report giúp:
+
+Developer hiểu lỗi.
+QA theo dõi tiến độ.
+Team giao tiếp rõ ràng.
+Quản lý đánh giá chất lượng.
+
+  Một Bug Report cơ bản nên có:
+
+| Thành phần         | Nội dung                       |
+| ------------------ | ------------------------------ |
+| Bug ID             | Mã lỗi                         |
+| Summary/Title      | Tiêu đề lỗi                    |
+| Description        | Mô tả                          |
+| Pre-condition      | Điều kiện trước khi xảy ra lỗi |
+| Steps to Reproduce | Các bước tái hiện              |
+| Actual Result      | Kết quả thực tế                |
+| Expected Result    | Kết quả mong đợi               |
+| Severity           | Mức độ nghiêm trọng            |
+| Priority           | Mức độ ưu tiên                 |
+| Environment        | Môi trường                     |
+| Attachment         | Screenshot/Video nếu có        |
+
+  ⭐ 7. Quy trình quản lý lỗi và Bug Life Cycle
+
+Bạn có thể nhớ một vòng đời lỗi cơ bản như sau:
+
+          ┌───────────┐
+          │    NEW    │
+          └─────┬─────┘
+                ↓
+          ┌───────────┐
+          │ ASSIGNED  │
+          └─────┬─────┘
+                ↓
+          ┌───────────┐
+          │IN PROGRESS│
+          └─────┬─────┘
+                ↓
+          ┌───────────┐
+          │ RESOLVED  │
+          └─────┬─────┘
+                ↓
+             RETEST
+            ↙      ↘
+         PASS      FAIL
+          ↓          ↓
+        CLOSED    REOPENED
+                     ↓
+                 ASSIGNED
+
+👉 Bạn không cần nhớ chính xác mọi tên trạng thái vì mỗi công ty có workflow khác nhau.
+
+Điều quan trọng là hiểu:
+
+Tester phát hiện → Developer xử lý → Tester kiểm tra lại → Đóng hoặc mở lại lỗi.
+
+8. Phương pháp quản lý lỗi hiệu quả
+
+Bạn nên nhớ các nguyên tắc thực tế sau:
+
+✅ 1. Viết Bug Report theo mẫu thống nhất
+
+Giúp:
+
+Dễ đọc.
+Dễ theo dõi.
+Dễ tái hiện.
+
+✅ 2. Reproduce lỗi trước khi báo cáo
+
+Bài học gợi ý nên tái hiện lỗi nhiều lần, đặc biệt trên môi trường sạch.
+
+Mục đích:
+
+Đảm bảo lỗi thực sự tồn tại và các bước tái hiện rõ ràng.
+
+Điều này giúp giảm khả năng Bug bị:
+
+Rejected.
+Cannot Reproduce.
+✅ 3. Ưu tiên lỗi quan trọng
+
+Không nên để:
+
+Critical Bug
+
+xếp sau:
+
+Minor UI Bug.
+
+✅ 4. Sử dụng Bug Tracking Tool
+
+Các công cụ phổ biến:
+
+Jira.
+Bugzilla.
+Mantis.
+
+🎯 Với mục tiêu CV của bạn, Jira là công cụ nên ưu tiên tìm hiểu nếu JD có đề cập đến Jira.
+
+✅ 5. Theo dõi trạng thái lỗi
+
+Tester cần biết:
+
+Bug đã được giao chưa?
+Developer đang xử lý chưa?
+Đã Fixed chưa?
+Cần Retest chưa?
+
+✅ 6. Phân tích lỗi nghiêm trọng hoặc lỗi lặp lại
+
+Các lỗi:
+
+Critical.
+Xuất hiện nhiều lần.
+Lặp lại sau khi sửa.
+
+nên được phân tích nguyên nhân để hạn chế tái diễn.
+
+9. Các chỉ số lỗi: Bạn cần biết đến mức nào?
+
+Bài học có đề cập:
+
+Defect Rejection Rate (DRR)
+Số lỗi bị từ chối
+──────────────────── × 100%
+Tổng số lỗi được báo cáo
+
+Mục đích:
+
+Đánh giá chất lượng Bug Report và quá trình phát hiện lỗi.
+
+Defect Leakage Rate (DLR)
+
+Đánh giá số lỗi mà quá trình kiểm thử đã bỏ sót, sau đó mới được phát hiện ở giai đoạn sau hoặc bởi người dùng.
+
+👉 Với vị trí Junior Tester, bạn nên:
+
+✅ Hiểu ý nghĩa.
+
+⚠️ Chưa cần quá tập trung vào việc học thuộc công thức hoặc mức phần trăm cụ thể.
+
+Phần này thường phù hợp hơn khi làm việc trong môi trường QA có quy trình và metrics rõ ràng.
+
+
+  ________________________________________________________________
+🥇 Bug Life Cycle
+
+Biết lỗi đi từ New → Fix → Retest → Closed/Reopened.
+
+🥈 Bug Report
+
+Biết cách viết một báo cáo lỗi rõ ràng, có thể tái hiện.
+
+🥉 Severity và Priority
+
+Hiểu:
+
+Severity = mức độ ảnh hưởng của lỗi.
+Priority = mức độ cần sửa sớm của lỗi.
+
+🏅 Retesting
+
+Sau khi Developer sửa lỗi:
+
+Tester thực hiện lại để xác minh lỗi đã được khắc phục.
