@@ -1,0 +1,238 @@
+Bài 26: Vòng đời lỗi/ sự cố trong kiểm thử phần mềm
+
+1. Defect/Bug Life Cycle là gì?
+
+Defect Life Cycle (DLC) hoặc Bug Life Cycle (BLC) là:
+
+Chuỗi các trạng thái mà một lỗi trải qua từ khi được phát hiện, ghi nhận, xử lý, sửa chữa, kiểm thử lại cho đến khi được đóng.
+
+Mục đích
+Theo dõi trạng thái của Bug.
+Biết ai đang xử lý Bug.
+Biết Bug đã được sửa hay chưa.
+Đảm bảo quá trình xử lý lỗi có hệ thống.
+Tăng khả năng phối hợp giữa Tester – Developer – Project/Product team.
+
+2. ⭐ Các trạng thái Bug quan trọng
+
+| Trạng thái             | Ý nghĩa                                 |
+| ---------------------- | --------------------------------------- |
+| **New**                | Tester vừa phát hiện và tạo Bug         |
+| **Assigned**           | Bug được giao cho Developer             |
+| **Open / In Progress** | Developer đang phân tích/xử lý          |
+| **Fixed / Resolved**   | Developer đã sửa lỗi                    |
+| **Pending Retest**     | Đang chờ Tester kiểm tra lại            |
+| **Retest**             | Tester thực hiện kiểm tra lại           |
+| **Verified**           | Tester xác nhận lỗi đã được sửa         |
+| **Closed**             | Bug được xác nhận hoàn tất              |
+| **Reopened**           | Lỗi vẫn còn → mở lại để Developer xử lý |
+
+👉 Chuối cần nhớ:
+
+  New
+ ↓
+Assigned
+ ↓
+Open / In Progress
+ ↓
+Fixed / Resolved
+ ↓
+Pending Retest
+ ↓
+Retest
+ ↓
+Verified
+ ↓
+Closed
+
+⭐ Nếu Retest Fail:
+
+Retest
+   ↓
+Fail
+   ↓
+Reopened
+   ↓
+Developer Fix
+   ↓
+Retest
+
+3. ⭐ Các trạng thái đặc biệt cần biết
+
+Ngoài flow chính, bạn nên biết thêm 4 trạng thái này:
+
+Duplicate
+
+Bug đã được báo cáo trước đó, không tạo Bug mới.
+
+Ví dụ:
+
+TC001 phát hiện Login không hoạt động.
+TC005 cũng phát hiện đúng lỗi đó.
+
+→ TC005 có thể được đánh dấu Duplicate.
+
+Rejected
+
+Team xác định vấn đề được báo cáo không phải Bug hợp lệ.
+
+Ví dụ:
+
+Tester báo:
+
+"Nút này có màu khác với tôi mong đợi."
+
+Nhưng tài liệu thiết kế quy định đúng màu đó.
+
+→ Có thể Rejected.
+
+Deferred
+
+Bug có thật nhưng chưa được ưu tiên sửa ở phiên bản hiện tại, có thể xử lý ở Release/Sprint sau.
+
+Ví dụ:
+
+Một lỗi nhỏ về UI không ảnh hưởng chức năng chính.
+
+→ Có thể được Deferred.
+
+Not a Bug
+
+Vấn đề được báo cáo nhưng không được xem là lỗi của hệ thống, có thể do thiết kế hoặc hành vi được yêu cầu.
+
+4. ⭐ Flow thực tế của một Bug
+
+Ví dụ bạn đang kiểm thử chức năng Add Workout.
+
+Bước 1 – Tester phát hiện
+
+Expected:
+
+Sau khi Add Workout thành công, danh sách Workout được cập nhật.
+
+Actual:
+
+Workout được lưu nhưng danh sách không cập nhật.
+
+→ Tạo Bug.
+
+NEW
+
+Bước 2 – Bug được phân công
+
+Team xác nhận Bug hợp lệ và giao cho Developer.
+
+NEW
+ ↓
+ASSIGNED
+Bước 3 – Developer xử lý
+
+Developer phân tích và sửa code.
+
+ASSIGNED
+ ↓
+IN PROGRESS
+
+Bước 4 – Developer sửa xong
+IN PROGRESS
+ ↓
+FIXED
+Bước 5 – Tester Retest
+
+Tester thực hiện lại đúng các bước đã gây ra lỗi.
+
+FIXED
+ ↓
+RETEST
+
+Bước 6 – Kết quả Retest
+
+Nếu:
+
+Actual = Expected
+
+→ Verified / Closed
+
+Nếu:
+
+Actual ≠ Expected
+
+→ Reopened
+
+5. ⭐ Điểm rất quan trọng: Retest
+
+Retest = kiểm tra lại Bug cụ thể sau khi Developer đã sửa.
+
+Ví dụ:
+
+Bug: Không thể lưu Workout.
+
+Developer sửa lỗi.
+
+Tester thực hiện lại:
+
+Mở Add Workout.
+Nhập dữ liệu.
+Nhấn Save.
+Kiểm tra kết quả.
+
+Nếu Save hoạt động:
+
+✅ Pass → Verified/Closed
+
+Nếu vẫn không Save được:
+
+❌ Fail → Reopened
+
+6. Retest và Regression Testing khác nhau
+
+Retest	Regression Testing
+Kiểm tra lại Bug cụ thể đã sửa	
+Kiểm tra các chức năng liên quan/cũ
+Mục tiêu: Bug đã hết chưa?	
+Mục tiêu: Việc sửa Bug có làm hỏng chức năng khác không?
+Tập trung vào lỗi đã sửa	Phạm vi rộng hơn
+
+Ví dụ:
+
+Developer sửa lỗi Add Workout.
+
+Retest:
+
+→ Kiểm tra Add Workout có hoạt động chưa.
+
+Regression:
+
+→ Kiểm tra thêm Edit Workout, Delete Workout, Statistics... có bị ảnh hưởng không.
+
+
+7. Bug Life Cycle trong Jira
+
+Bài học đề cập đến Jira, đây là phần bạn nên quan tâm vì phù hợp với JD Junior Tester.
+
+Một workflow Jira có thể đơn giản như:
+
+TO DO / OPEN
+      ↓
+IN PROGRESS
+      ↓
+RESOLVED
+      ↓
+RETEST
+      ↓
+CLOSED
+
+Nếu lỗi chưa được sửa:
+
+RETEST
+   ↓
+FAILED
+   ↓
+REOPENED
+   ↓
+IN PROGRESS
+
+⚠️ Lưu ý: Jira cho phép team tùy chỉnh workflow, vì vậy tên trạng thái thực tế có thể khác nhau.
+
+Bạn chỉ cần hiểu logic của vòng đời, không cần học thuộc một workflow Jira cố định.
+
